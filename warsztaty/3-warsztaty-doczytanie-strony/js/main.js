@@ -45,10 +45,7 @@ function ajax(ajaxOptions) {
 
     httpReq.send();
 }
-
 let btn = document.querySelector('button');
-/*
-
 
 function pobierzDane() {
     ajax({
@@ -59,35 +56,23 @@ function pobierzDane() {
         },
         onSuccess: function (response) {
             var jsonObj = JSON.parse(response);
-            // console.log(jsonObj);
-            // let drugiUser = jsonObj[1];
-            // let par = document.createElement('p');
-            // par.innerText = drugiUser.name;
-            // btn.insertAdjacentElement("afterend", par);
+            console.log(jsonObj);
             jsonObj.forEach(function (element, index) {
-                let par = document.createElement('p');
-                par.innerText = element.name;
-                btn.insertAdjacentElement("afterend", par);
+                let container = document.createElement('p');
+                container.innerHTML = `${element.id} ${element.name} ${element.email}`;
+                document.body.appendChild(container);
+
             })
         }
     })
-
 }
 
 btn.addEventListener('click', pobierzDane);
+window.addEventListener('scroll', function () {
+    if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+        pobierzDane()
+        console.log('bottom');
+    }
+});
 
-*/
-
-
-// POBIERANIE ZA POMOCĄ FETCH
-function pobierzDane() {
-    fetch("https://jsonplaceholder.typicode.com/users")
-        .then(response => response.json())
-        .then(data => {
-            //TU DZIAŁAMY NA DANYCH POBRANYCH Z SERWERA
-            console.log(data)
-        })
-        .catch(error => console.log(error));
-}
-
-btn.addEventListener('click', pobierzDane);
+// document.body.offsetHeight / (window.innerHeight + window.scrollY) > 1.02
