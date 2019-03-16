@@ -1,0 +1,6 @@
+Stwórz przycisk i podepnij zdarzenie, które wykona poniższe zadania
+* Za pomocą ajax pobierz tablicę ogłoszeń z serwera
+* Każde ogłoszenie wyświetl w oddzielnym divie
+* Pojedyncze ogłoszenie ma następujący układ: z lewej strony jest figure z obrazem ogłoszenia, z prawej natomiast div w którym znajduje się id, tytuł, opis, kategoria, miasto, kontakt
+
+Użyj dowolnej znanego ci sposobu pobrania danych za pomocą AJAX
